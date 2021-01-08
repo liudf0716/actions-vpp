@@ -25,15 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
+      - name: initialize environment
+        run: mkdir work
+        
       - name: git clone vpp code
         working-directory: work
-        run: |
-          mkdir work
-          cd work
-          git clone https://github.com/FDio/vpp.git
+        run: git clone https://github.com/FDio/vpp.git
 
-      # Runs a set of commands using the runners shell
       - name: make install-deps
         run: |
           cd vpp
