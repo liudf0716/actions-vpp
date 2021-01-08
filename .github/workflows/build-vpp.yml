@@ -30,7 +30,9 @@ jobs:
         
       - name: git clone vpp code
         working-directory: work
-        run: git clone https://github.com/FDio/vpp.git
+        run: |
+          git clone https://github.com/FDio/vpp.git
+          ln -sf /work/vpp $GITHUB_WORKSPACE/vpp
 
       - name: make install-deps
         run: |
