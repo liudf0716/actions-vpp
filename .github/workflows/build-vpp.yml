@@ -52,11 +52,15 @@ jobs:
           cd vpp
           make build-release
           
-      - name: make pkg-deb and move pkg to release direcotry
+      - name: make pkg-deb
         run: |
           cd vpp
           make pkg-deb
-          mkdir /work/release
+
+      - name: mv pkg to release directory
+        run: |
+          mkdir -p /work/release
+          cd vpp
           cp build-root/*.deb /work/release
           
       - name: upload release file 
