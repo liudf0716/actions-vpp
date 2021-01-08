@@ -36,6 +36,7 @@ jobs:
 
       - name: make install-deps
         run: |
+          pwd
           cd vpp
           make install-deps
           
