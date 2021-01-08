@@ -51,3 +51,17 @@ jobs:
         run: |
           cd vpp
           make build-release
+          
+      - name: make pkg-deb and move pkg to release direcotry
+        run: |
+          cd vpp
+          make pkg-deb
+          mkdir /work/release
+          cp build-root/*.deb /work/release
+          
+      - name: upload release file 
+        uses: liudf0716/upload-artifact@v2.2.2
+        if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
+        with:
+         name: vpp_release
+         path: /work/release
