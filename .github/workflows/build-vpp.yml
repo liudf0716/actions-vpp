@@ -29,6 +29,7 @@ jobs:
       - name: git clone vpp code
         working-directory: work
         run: |
+          mkdir work
           cd work
           git clone https://github.com/FDio/vpp.git
 
