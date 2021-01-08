@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: initialize environment
-        run: mkdir work
+        run: mkdir /work
         
       - name: git clone vpp code
         working-directory: work
