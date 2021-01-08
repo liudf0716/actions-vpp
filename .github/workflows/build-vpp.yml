@@ -65,7 +65,7 @@ jobs:
           
       - name: upload release file 
         uses: liudf0716/upload-artifact@v2.2.2
-        if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
+        if: steps.compile.outputs.status == 'success'
         with:
          name: vpp_release
          path: /work/release
